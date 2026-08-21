@@ -907,6 +907,232 @@
                 height: 38px;
             }
         }
+
+        /* Сетевой радар / Network Diagnostics */
+        .network-radar-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px 18px;
+            margin-top: 14px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .network-radar-card:hover {
+            border-color: var(--border-hover);
+            background-color: var(--surface-hover);
+        }
+
+        .radar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .radar-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radar-pulse-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(0, 255, 102, 0.08);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .radar-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 8px var(--accent-green);
+            animation: radarPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes radarPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 12px var(--accent-green); }
+        }
+
+        .radar-text-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .radar-title {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--text-primary);
+        }
+
+        .radar-subtitle {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-radar-scan {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            font-size: 0.76rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .btn-radar-scan:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            background: rgba(0, 255, 102, 0.08);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.2);
+        }
+
+        .btn-radar-scan.scanning .radar-scan-icon {
+            animation: spinScan 1s linear infinite;
+        }
+
+        @keyframes spinScan {
+            100% { transform: rotate(360deg); }
+        }
+
+        .radar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radar-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 4px;
+            padding: 8px 12px;
+            transition: all 0.25s ease;
+        }
+
+        .radar-row:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .radar-row-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radar-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .radar-service {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .radar-row-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radar-ms {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .radar-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .status-idle {
+            background: rgba(255, 255, 255, 0.05);
+            color: #777;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .status-scanning {
+            background: rgba(0, 229, 255, 0.1);
+            color: #00e5ff;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            animation: radarBlink 0.8s infinite alternate;
+        }
+
+        @keyframes radarBlink {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .status-ok {
+            background: rgba(0, 255, 102, 0.12);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 102, 0.35);
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.15);
+        }
+
+        .status-slow {
+            background: rgba(255, 204, 0, 0.12);
+            color: #ffcc00;
+            border: 1px solid rgba(255, 204, 0, 0.35);
+        }
+
+        .status-blocked {
+            background: rgba(255, 68, 68, 0.12);
+            color: #ff4444;
+            border: 1px solid rgba(255, 68, 68, 0.35);
+        }
+
+        .radar-row.ok .radar-indicator {
+            background: var(--accent-green);
+            box-shadow: 0 0 6px var(--accent-green);
+        }
+
+        .radar-row.slow .radar-indicator {
+            background: #ffcc00;
+            box-shadow: 0 0 6px #ffcc00;
+        }
+
+        .radar-row.blocked .radar-indicator {
+            background: #ff4444;
+            box-shadow: 0 0 6px #ff4444;
+        }
     </style>
 </head>
 <body>
@@ -1194,6 +1420,67 @@
                         <a href="mailto:yoyrorpartner@gmail.com" class="contact-email">yoyrorpartner@gmail.com</a>
                     </div>
                 </div>
+
+                <!-- Интерактивный радар диагностики сети -->
+                <div class="network-radar-card">
+                    <div class="radar-header">
+                        <div class="radar-title-group">
+                            <div class="radar-pulse-icon">
+                                <span class="radar-dot"></span>
+                            </div>
+                            <div class="radar-text-wrap">
+                                <div class="radar-title" data-i18n="radar_title">Сетевой радар</div>
+                                <div class="radar-subtitle" data-i18n="radar_subtitle">Пинг и доступность сервисов</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-radar-scan" onclick="runNetworkDiagnostics()" id="radarScanBtn">
+                            <svg class="radar-scan-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M23 4v6h-6"></path>
+                                <path d="M1 20v-6h6"></path>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                            </svg>
+                            <span data-i18n="radar_btn_test">Тест сети</span>
+                        </button>
+                    </div>
+                    
+                    <div class="radar-list">
+                        <!-- YouTube -->
+                        <div class="radar-row" id="radar-yt">
+                            <div class="radar-row-left">
+                                <span class="radar-indicator"></span>
+                                <span class="radar-service">YouTube</span>
+                            </div>
+                            <div class="radar-row-right">
+                                <span class="radar-ms">-- мс</span>
+                                <span class="radar-tag status-idle" data-i18n="radar_idle">Ожидание</span>
+                            </div>
+                        </div>
+
+                        <!-- Discord -->
+                        <div class="radar-row" id="radar-dc">
+                            <div class="radar-row-left">
+                                <span class="radar-indicator"></span>
+                                <span class="radar-service">Discord</span>
+                            </div>
+                            <div class="radar-row-right">
+                                <span class="radar-ms">-- мс</span>
+                                <span class="radar-tag status-idle" data-i18n="radar_idle">Ожидание</span>
+                            </div>
+                        </div>
+
+                        <!-- Telegram -->
+                        <div class="radar-row" id="radar-tg">
+                            <div class="radar-row-left">
+                                <span class="radar-indicator"></span>
+                                <span class="radar-service">Telegram</span>
+                            </div>
+                            <div class="radar-row-right">
+                                <span class="radar-ms">-- мс</span>
+                                <span class="radar-tag status-idle" data-i18n="radar_idle">Ожидание</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
 
@@ -1317,6 +1604,15 @@
                 soc_gh_name: "GitHub",
                 soc_gh_desc: "Мои проекты и открытый код.",
                 contact_prefix: "Сотрудничество и предложения:",
+                radar_title: "Сетевой радар",
+                radar_subtitle: "Пинг и доступность сервисов",
+                radar_btn_test: "Тест сети",
+                radar_idle: "Ожидание",
+                radar_scanning: "Тест...",
+                radar_ok: "Доступен",
+                radar_slow: "Замедлен",
+                radar_blocked: "Блокировка",
+                radar_ms_unit: "мс",
                 guide_placeholder: "гайды скоро будут",
                 footer_copy: "© 2026 YOYROR // Официальные источники и репозитории."
             },
@@ -1347,6 +1643,15 @@
                 soc_gh_name: "GitHub",
                 soc_gh_desc: "My projects and open source code.",
                 contact_prefix: "Cooperation and proposals:",
+                radar_title: "Network Radar",
+                radar_subtitle: "Ping & service status",
+                radar_btn_test: "Test Network",
+                radar_idle: "Idle",
+                radar_scanning: "Testing...",
+                radar_ok: "Available",
+                radar_slow: "Slow",
+                radar_blocked: "Blocked",
+                radar_ms_unit: "ms",
                 guide_placeholder: "guides coming soon",
                 footer_copy: "© 2026 YOYROR // Official sources and repositories."
             }
@@ -1392,6 +1697,116 @@
             } catch(e) {}
             document.addEventListener('DOMContentLoaded', () => setLanguage(initialLang));
         })();
+    </script>
+
+    <!-- Скрипт диагностики сети (Network Ping Radar) -->
+    <script>
+        async function testServicePing(url, timeoutMs = 2800) {
+            const start = performance.now();
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+            try {
+                const cacheBuster = (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+                await fetch(url + cacheBuster, {
+                    mode: 'no-cors',
+                    cache: 'no-store',
+                    signal: controller.signal
+                });
+                clearTimeout(timer);
+                const duration = Math.round(performance.now() - start);
+                return { ok: true, duration };
+            } catch (err) {
+                clearTimeout(timer);
+                return { ok: false, duration: null, isTimeout: err.name === 'AbortError' };
+            }
+        }
+
+        let isRunningDiagnostics = false;
+        async function runNetworkDiagnostics() {
+            if (isRunningDiagnostics) return;
+            isRunningDiagnostics = true;
+
+            const btn = document.getElementById('radarScanBtn');
+            if (btn) btn.classList.add('scanning');
+
+            const currentLang = document.documentElement.lang || 'ru';
+            const dict = (typeof i18n !== 'undefined' && i18n[currentLang]) ? i18n[currentLang] : {
+                radar_scanning: "Тест...",
+                radar_ok: "Доступен",
+                radar_slow: "Замедлен",
+                radar_blocked: "Блокировка",
+                radar_ms_unit: "мс"
+            };
+
+            const services = [
+                {
+                    id: 'radar-yt',
+                    url: 'https://www.youtube.com/generate_204'
+                },
+                {
+                    id: 'radar-dc',
+                    url: 'https://discord.com/favicon.ico'
+                },
+                {
+                    id: 'radar-tg',
+                    url: 'https://telegram.org/favicon.ico'
+                }
+            ];
+
+            // Переводим карточки в состояние сканирования
+            services.forEach(s => {
+                const el = document.getElementById(s.id);
+                if (el) {
+                    el.className = 'radar-row scanning';
+                    const tag = el.querySelector('.radar-tag');
+                    const ms = el.querySelector('.radar-ms');
+                    if (tag) {
+                        tag.className = 'radar-tag status-scanning';
+                        tag.textContent = dict.radar_scanning || 'Тест...';
+                    }
+                    if (ms) ms.textContent = '...';
+                }
+            });
+
+            // Параллельный запуск проверки
+            await Promise.all(services.map(async (s) => {
+                const res = await testServicePing(s.url);
+                const el = document.getElementById(s.id);
+                if (!el) return;
+
+                const tag = el.querySelector('.radar-tag');
+                const ms = el.querySelector('.radar-ms');
+                const msUnit = dict.radar_ms_unit || 'мс';
+
+                if (res.ok) {
+                    if (res.duration < 380) {
+                        el.className = 'radar-row ok';
+                        if (tag) {
+                            tag.className = 'radar-tag status-ok';
+                            tag.textContent = dict.radar_ok || 'Доступен';
+                        }
+                    } else {
+                        el.className = 'radar-row slow';
+                        if (tag) {
+                            tag.className = 'radar-tag status-slow';
+                            tag.textContent = dict.radar_slow || 'Замедлен';
+                        }
+                    }
+                    if (ms) ms.textContent = `${res.duration} ${msUnit}`;
+                } else {
+                    el.className = 'radar-row blocked';
+                    if (tag) {
+                        tag.className = 'radar-tag status-blocked';
+                        tag.textContent = dict.radar_blocked || 'Блокировка';
+                    }
+                    if (ms) ms.textContent = (currentLang === 'en' ? 'Timeout' : 'Таймаут');
+                }
+            }));
+
+            if (btn) btn.classList.remove('scanning');
+            isRunningDiagnostics = false;
+        }
     </script>
 
     <!-- Скрипт плавного раскрытия аккордеона с поддержкой клавиатуры -->
