@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>YOYROR — мой мини-сайт</title>
+    <title>YOYROR — мини-хаб</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -12,15 +12,15 @@
 
     <!-- Open Graph / Meta Tags для красивого превью в Telegram и соцсетях -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="YOYROR — мой мини-сайт">
-    <meta property="og:description" content="Официальный и проверенный софт без вирусов, инструкции по настройке и актуальные ссылки.">
+    <meta property="og:title" content="YOYROR — мини-хаб">
+    <meta property="og:description" content="Хаб проверенного софта и сетевых утилит для Windows.">
     <meta property="og:image" content="og-image.jpg">
     <meta property="og:site_name" content="YOYROR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="YOYROR — мой мини-сайт">
-    <meta name="twitter:description" content="Официальный и проверенный софт без вирусов, инструкции по настройке и актуальные ссылки.">
+    <meta name="twitter:title" content="YOYROR — мини-хаб">
+    <meta name="twitter:description" content="Хаб проверенного софта и сетевых утилит для Windows.">
     <meta name="twitter:image" content="og-image.jpg">
     <style>
         @font-face {
@@ -908,230 +908,205 @@
             }
         }
 
-        /* Сетевой радар / Network Diagnostics */
-        .network-radar-card {
+                                                                /* Панель NET / Diagnostics Panel (Standard Clean Font) */
+        .net-panel {
             background-color: var(--surface);
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 16px 18px;
-            margin-top: 14px;
-            backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 16px;
             display: flex;
             flex-direction: column;
             gap: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
         }
 
-        .network-radar-card:hover {
+        .net-panel:hover {
             border-color: var(--border-hover);
             background-color: var(--surface-hover);
         }
 
-        .radar-header {
+        .net-panel-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-        }
-
-        .radar-title-group {
-            display: flex;
-            align-items: center;
             gap: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .radar-pulse-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: rgba(0, 255, 102, 0.08);
-            border: 1px solid rgba(0, 255, 102, 0.3);
+        .net-header-left {
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-shrink: 0;
+            gap: 8px;
         }
 
-        .radar-dot {
-            width: 7px;
-            height: 7px;
+        .net-pulse-dot {
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: var(--accent-green);
-            box-shadow: 0 0 8px var(--accent-green);
-            animation: radarPulse 2s infinite ease-in-out;
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
         }
 
-        @keyframes radarPulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 12px var(--accent-green); }
-        }
-
-        .radar-text-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .radar-title {
-            font-family: var(--font-display);
-            font-size: 0.88rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
+        .net-header-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif !important;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
             color: var(--text-primary);
         }
 
-        .radar-subtitle {
-            font-size: 0.72rem;
-            color: var(--text-secondary);
-        }
-
-        .btn-radar-scan {
+        .btn-net-check {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 5px 12px;
+            background: #ffffff;
+            border: 1px solid #ffffff;
             border-radius: 4px;
-            color: var(--text-primary);
-            font-family: var(--font-display);
-            font-size: 0.76rem;
-            font-weight: 600;
+            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif !important;
+            font-size: 0.72rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.25s ease;
-            flex-shrink: 0;
+            transition: all 0.2s ease;
         }
 
-        .btn-radar-scan:hover {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-            background: rgba(0, 255, 102, 0.08);
-            box-shadow: 0 0 12px rgba(0, 255, 102, 0.2);
+        .btn-net-check:hover {
+            background: #e4e4e4;
+            border-color: #e4e4e4;
+            transform: translateY(-1px);
         }
 
-        .btn-radar-scan.scanning .radar-scan-icon {
-            animation: spinScan 1s linear infinite;
+        .btn-net-check.scanning {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            cursor: wait;
         }
 
-        @keyframes spinScan {
+        .btn-net-check.scanning svg {
+            animation: netSpin 0.8s linear infinite;
+        }
+
+        @keyframes netSpin {
             100% { transform: rotate(360deg); }
         }
 
-        .radar-list {
+        .net-services-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .radar-row {
+        .net-service-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 4px;
             padding: 8px 12px;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
         }
 
-        .radar-row:hover {
-            border-color: rgba(255, 255, 255, 0.12);
+        .net-service-row:hover {
             background: rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
-        .radar-row-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .radar-indicator {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .radar-service {
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .radar-row-right {
+        .net-service-left {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .radar-ms {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.75rem;
-            color: var(--text-secondary);
+        .net-svc-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            flex-shrink: 0;
         }
 
-        .radar-tag {
-            font-size: 0.7rem;
+        .net-svc-icon svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .net-service-name {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif !important;
+            font-size: 0.82rem;
             font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .net-service-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .net-ping-text {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif !important;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .net-tag {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif !important;
+            font-size: 0.68rem;
+            font-weight: 700;
             padding: 2px 7px;
             border-radius: 3px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
-        .status-idle {
-            background: rgba(255, 255, 255, 0.05);
-            color: #777;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .net-tag.idle {
+            background: rgba(255, 255, 255, 0.04);
+            color: #777777;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .status-scanning {
-            background: rgba(0, 229, 255, 0.1);
-            color: #00e5ff;
-            border: 1px solid rgba(0, 229, 255, 0.3);
-            animation: radarBlink 0.8s infinite alternate;
+        .net-tag.scanning {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            animation: netBlink 0.6s infinite alternate;
         }
 
-        @keyframes radarBlink {
-            0% { opacity: 0.6; }
+        @keyframes netBlink {
+            0% { opacity: 0.4; }
             100% { opacity: 1; }
         }
 
-        .status-ok {
-            background: rgba(0, 255, 102, 0.12);
-            color: var(--accent-green);
-            border: 1px solid rgba(0, 255, 102, 0.35);
-            box-shadow: 0 0 8px rgba(0, 255, 102, 0.15);
+        .net-tag.ok {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
         }
 
-        .status-slow {
-            background: rgba(255, 204, 0, 0.12);
-            color: #ffcc00;
-            border: 1px solid rgba(255, 204, 0, 0.35);
+        .net-tag.slow {
+            background: rgba(255, 255, 255, 0.06);
+            color: #cccccc;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .status-blocked {
-            background: rgba(255, 68, 68, 0.12);
-            color: #ff4444;
-            border: 1px solid rgba(255, 68, 68, 0.35);
-        }
-
-        .radar-row.ok .radar-indicator {
-            background: var(--accent-green);
-            box-shadow: 0 0 6px var(--accent-green);
-        }
-
-        .radar-row.slow .radar-indicator {
-            background: #ffcc00;
-            box-shadow: 0 0 6px #ffcc00;
-        }
-
-        .radar-row.blocked .radar-indicator {
-            background: #ff4444;
-            box-shadow: 0 0 6px #ff4444;
+        .net-tag.blocked {
+            background: rgba(255, 255, 255, 0.04);
+            color: #777777;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
@@ -1149,7 +1124,7 @@
                         <span class="status-text" data-i18n="status_text">актуально</span>
                     </div>
                 </div>
-                <p class="logo-desc" data-i18n="logo_desc">мой мини-сайт</p>
+                <p class="logo-desc" data-i18n="logo_desc">мини-хаб</p>
             </div>
             
             <div class="header-right">
@@ -1421,62 +1396,72 @@
                     </div>
                 </div>
 
-                <!-- Интерактивный радар диагностики сети -->
-                <div class="network-radar-card">
-                    <div class="radar-header">
-                        <div class="radar-title-group">
-                            <div class="radar-pulse-icon">
-                                <span class="radar-dot"></span>
-                            </div>
-                            <div class="radar-text-wrap">
-                                <div class="radar-title" data-i18n="radar_title">Сетевой радар</div>
-                                <div class="radar-subtitle" data-i18n="radar_subtitle">Пинг и доступность сервисов</div>
-                            </div>
+                <!-- Секция NET под Socials -->
+                <div class="section-header-row" style="margin-top: 32px;">
+                    <h2 class="title" data-i18n="title_net">NET</h2>
+                </div>
+
+                <!-- Панель проверки пинга и блокировок -->
+                <div class="net-panel">
+                    <div class="net-panel-header">
+                        <div class="net-header-left">
+                            <div class="net-pulse-dot"></div>
+                            <span class="net-header-title" data-i18n="net_status_title">Диагностика доступности</span>
                         </div>
-                        <button type="button" class="btn-radar-scan" onclick="runNetworkDiagnostics()" id="radarScanBtn">
-                            <svg class="radar-scan-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M23 4v6h-6"></path>
-                                <path d="M1 20v-6h6"></path>
-                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        <button type="button" class="btn-net-check" onclick="runNetDiagnostics()" id="netCheckBtn">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                             </svg>
-                            <span data-i18n="radar_btn_test">Тест сети</span>
+                            <span data-i18n="btn_check">Проверить</span>
                         </button>
                     </div>
-                    
-                    <div class="radar-list">
+
+                    <div class="net-services-list">
                         <!-- YouTube -->
-                        <div class="radar-row" id="radar-yt">
-                            <div class="radar-row-left">
-                                <span class="radar-indicator"></span>
-                                <span class="radar-service">YouTube</span>
+                        <div class="net-service-row" id="net-svc-yt">
+                            <div class="net-service-left">
+                                <div class="net-svc-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </div>
+                                <span class="net-service-name">YouTube</span>
                             </div>
-                            <div class="radar-row-right">
-                                <span class="radar-ms">-- мс</span>
-                                <span class="radar-tag status-idle" data-i18n="radar_idle">Ожидание</span>
+                            <div class="net-service-right">
+                                <span class="net-ping-text">-- мс</span>
+                                <span class="net-tag idle" data-i18n="net_idle">Ожидание</span>
                             </div>
                         </div>
 
                         <!-- Discord -->
-                        <div class="radar-row" id="radar-dc">
-                            <div class="radar-row-left">
-                                <span class="radar-indicator"></span>
-                                <span class="radar-service">Discord</span>
+                        <div class="net-service-row" id="net-svc-dc">
+                            <div class="net-service-left">
+                                <div class="net-svc-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.094 13.094 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011c3.92 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.246.195.373.289a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/>
+                                    </svg>
+                                </div>
+                                <span class="net-service-name">Discord</span>
                             </div>
-                            <div class="radar-row-right">
-                                <span class="radar-ms">-- мс</span>
-                                <span class="radar-tag status-idle" data-i18n="radar_idle">Ожидание</span>
+                            <div class="net-service-right">
+                                <span class="net-ping-text">-- мс</span>
+                                <span class="net-tag idle" data-i18n="net_idle">Ожидание</span>
                             </div>
                         </div>
 
                         <!-- Telegram -->
-                        <div class="radar-row" id="radar-tg">
-                            <div class="radar-row-left">
-                                <span class="radar-indicator"></span>
-                                <span class="radar-service">Telegram</span>
+                        <div class="net-service-row" id="net-svc-tg">
+                            <div class="net-service-left">
+                                <div class="net-svc-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M21.5 2L2 11.5l6.5 3 2.5 7 3.5-5 5.5 4.5z"/>
+                                    </svg>
+                                </div>
+                                <span class="net-service-name">Telegram</span>
                             </div>
-                            <div class="radar-row-right">
-                                <span class="radar-ms">-- мс</span>
-                                <span class="radar-tag status-idle" data-i18n="radar_idle">Ожидание</span>
+                            <div class="net-service-right">
+                                <span class="net-ping-text">-- мс</span>
+                                <span class="net-tag idle" data-i18n="net_idle">Ожидание</span>
                             </div>
                         </div>
                     </div>
@@ -1528,7 +1513,7 @@
                     </div>
                 </div>
 
-                <!-- Заглушка 3 -->
+                                <!-- Заглушка 3 -->
                 <div class="guide-card">
                     <div class="guide-summary" role="button" tabindex="0" onclick="toggleGuide(this)" onkeydown="handleGuideKey(event, this)" aria-expanded="false" aria-controls="guide-content-3">
                         <div class="guide-meta">
@@ -1572,17 +1557,24 @@
         </footer>
     </div>
 
-    
     <!-- Скрипт мультиязычности (RU / EN) -->
     <script>
-        
         const i18n = {
             ru: {
-                page_title: "YOYROR — мой мини-сайт",
+                page_title: "YOYROR — мини-хаб",
                 status_text: "актуально",
-                logo_desc: "мой мини-сайт",
+                logo_desc: "мини-хаб",
                 title_downloads: "Downloads",
                 title_socials: "Socials",
+                title_net: "NET",
+                net_status_title: "Диагностика доступности",
+                btn_check: "Проверить",
+                net_idle: "Ожидание",
+                net_scanning: "Тест...",
+                net_ok: "Доступен",
+                net_slow: "Замедлен",
+                net_blocked: "Блокировка",
+                net_ms_unit: "мс",
                 title_guides: "Инструкции и Гайды // Setup Guides",
                 btn_download: "Скачать",
                 btn_open: "Открыть",
@@ -1604,24 +1596,24 @@
                 soc_gh_name: "GitHub",
                 soc_gh_desc: "Мои проекты и открытый код.",
                 contact_prefix: "Сотрудничество и предложения:",
-                radar_title: "Сетевой радар",
-                radar_subtitle: "Пинг и доступность сервисов",
-                radar_btn_test: "Тест сети",
-                radar_idle: "Ожидание",
-                radar_scanning: "Тест...",
-                radar_ok: "Доступен",
-                radar_slow: "Замедлен",
-                radar_blocked: "Блокировка",
-                radar_ms_unit: "мс",
                 guide_placeholder: "гайды скоро будут",
                 footer_copy: "© 2026 YOYROR // Официальные источники и репозитории."
             },
             en: {
-                page_title: "YOYROR — my mini-site",
+                page_title: "YOYROR — mini-hub",
                 status_text: "up to date",
-                logo_desc: "my mini-site",
+                logo_desc: "mini-hub",
                 title_downloads: "Downloads",
                 title_socials: "Socials",
+                title_net: "NET",
+                net_status_title: "Service Availability",
+                btn_check: "Check",
+                net_idle: "Idle",
+                net_scanning: "Testing...",
+                net_ok: "Available",
+                net_slow: "Slow",
+                net_blocked: "Blocked",
+                net_ms_unit: "ms",
                 title_guides: "Instructions & Guides // Setup Guides",
                 btn_download: "Download",
                 btn_open: "Open",
@@ -1643,15 +1635,6 @@
                 soc_gh_name: "GitHub",
                 soc_gh_desc: "My projects and open source code.",
                 contact_prefix: "Cooperation and proposals:",
-                radar_title: "Network Radar",
-                radar_subtitle: "Ping & service status",
-                radar_btn_test: "Test Network",
-                radar_idle: "Idle",
-                radar_scanning: "Testing...",
-                radar_ok: "Available",
-                radar_slow: "Slow",
-                radar_blocked: "Blocked",
-                radar_ms_unit: "ms",
                 guide_placeholder: "guides coming soon",
                 footer_copy: "© 2026 YOYROR // Official sources and repositories."
             }
@@ -1699,15 +1682,15 @@
         })();
     </script>
 
-    <!-- Скрипт диагностики сети (Network Ping Radar) -->
+                            <!-- Скрипт проверки сети NET (Ping & Diagnostics) -->
     <script>
-        async function testServicePing(url, timeoutMs = 2800) {
+        async function probeSingleService(url, timeoutMs = 3000) {
             const start = performance.now();
             const controller = new AbortController();
             const timer = setTimeout(() => controller.abort(), timeoutMs);
 
             try {
-                const cacheBuster = (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+                const cacheBuster = (url.includes('?') ? '&' : '?') + 't=' + Date.now() + Math.random();
                 await fetch(url + cacheBuster, {
                     mode: 'no-cors',
                     cache: 'no-store',
@@ -1718,94 +1701,84 @@
                 return { ok: true, duration };
             } catch (err) {
                 clearTimeout(timer);
-                return { ok: false, duration: null, isTimeout: err.name === 'AbortError' };
+                return { ok: false, duration: null };
             }
         }
 
-        let isRunningDiagnostics = false;
-        async function runNetworkDiagnostics() {
-            if (isRunningDiagnostics) return;
-            isRunningDiagnostics = true;
+        async function probeServiceWithWarmup(url) {
+            const p1 = await probeSingleService(url, 2800);
+            if (!p1.ok) return p1;
+            
+            const p2 = await probeSingleService(url, 1800);
+            const bestDuration = p2.ok && p2.duration ? Math.min(p1.duration, p2.duration) : p1.duration;
+            return { ok: true, duration: bestDuration };
+        }
 
-            const btn = document.getElementById('radarScanBtn');
+        let isRunningNetCheck = false;
+        async function runNetDiagnostics() {
+            if (isRunningNetCheck) return;
+            isRunningNetCheck = true;
+
+            const btn = document.getElementById('netCheckBtn');
             if (btn) btn.classList.add('scanning');
 
             const currentLang = document.documentElement.lang || 'ru';
-            const dict = (typeof i18n !== 'undefined' && i18n[currentLang]) ? i18n[currentLang] : {
-                radar_scanning: "Тест...",
-                radar_ok: "Доступен",
-                radar_slow: "Замедлен",
-                radar_blocked: "Блокировка",
-                radar_ms_unit: "мс"
-            };
+            const dict = (typeof i18n !== 'undefined' && i18n[currentLang]) ? i18n[currentLang] : {};
 
             const services = [
-                {
-                    id: 'radar-yt',
-                    url: 'https://www.youtube.com/generate_204'
-                },
-                {
-                    id: 'radar-dc',
-                    url: 'https://discord.com/favicon.ico'
-                },
-                {
-                    id: 'radar-tg',
-                    url: 'https://telegram.org/favicon.ico'
-                }
+                { id: 'net-svc-yt', url: 'https://www.youtube.com/generate_204' },
+                { id: 'net-svc-dc', url: 'https://discord.com/favicon.ico' },
+                { id: 'net-svc-tg', url: 'https://telegram.org/favicon.ico' }
             ];
 
-            // Переводим карточки в состояние сканирования
+            // Состояние сканирования
             services.forEach(s => {
                 const el = document.getElementById(s.id);
                 if (el) {
-                    el.className = 'radar-row scanning';
-                    const tag = el.querySelector('.radar-tag');
-                    const ms = el.querySelector('.radar-ms');
+                    const tag = el.querySelector('.net-tag');
+                    const ms = el.querySelector('.net-ping-text');
                     if (tag) {
-                        tag.className = 'radar-tag status-scanning';
-                        tag.textContent = dict.radar_scanning || 'Тест...';
+                        tag.className = 'net-tag scanning';
+                        tag.textContent = dict.net_scanning || 'Тест...';
                     }
                     if (ms) ms.textContent = '...';
                 }
             });
 
-            // Параллельный запуск проверки
+            // Параллельная точная диагностика
             await Promise.all(services.map(async (s) => {
-                const res = await testServicePing(s.url);
+                const res = await probeServiceWithWarmup(s.url);
                 const el = document.getElementById(s.id);
                 if (!el) return;
 
-                const tag = el.querySelector('.radar-tag');
-                const ms = el.querySelector('.radar-ms');
-                const msUnit = dict.radar_ms_unit || 'мс';
+                const tag = el.querySelector('.net-tag');
+                const ms = el.querySelector('.net-ping-text');
+                const msUnit = dict.net_ms_unit || 'мс';
 
                 if (res.ok) {
-                    if (res.duration < 380) {
-                        el.className = 'radar-row ok';
+                    if (res.duration <= 1100) {
                         if (tag) {
-                            tag.className = 'radar-tag status-ok';
-                            tag.textContent = dict.radar_ok || 'Доступен';
+                            tag.className = 'net-tag ok';
+                            tag.textContent = dict.net_ok || 'Доступен';
                         }
                     } else {
-                        el.className = 'radar-row slow';
                         if (tag) {
-                            tag.className = 'radar-tag status-slow';
-                            tag.textContent = dict.radar_slow || 'Замедлен';
+                            tag.className = 'net-tag slow';
+                            tag.textContent = dict.net_slow || 'Замедлен';
                         }
                     }
                     if (ms) ms.textContent = `${res.duration} ${msUnit}`;
                 } else {
-                    el.className = 'radar-row blocked';
                     if (tag) {
-                        tag.className = 'radar-tag status-blocked';
-                        tag.textContent = dict.radar_blocked || 'Блокировка';
+                        tag.className = 'net-tag blocked';
+                        tag.textContent = dict.net_blocked || 'Блокировка';
                     }
                     if (ms) ms.textContent = (currentLang === 'en' ? 'Timeout' : 'Таймаут');
                 }
             }));
 
             if (btn) btn.classList.remove('scanning');
-            isRunningDiagnostics = false;
+            isRunningNetCheck = false;
         }
     </script>
 
